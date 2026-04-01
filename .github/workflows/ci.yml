@@ -1,4 +1,4 @@
-name: CI - Security & Quality Gate
+name: CI - Security & Quality Gate (Python 3.12)
 
 on:
   push:

@@ -4,7 +4,7 @@
 
 Conforme as diretrizes de Soberania Técnica, as seguintes configurações foram aplicadas:
 
-- [x] **Python 3.14.2:** Instalado e verificado (`C:/Users/Alexandre/AppData/Local/Python/bin/python.exe`)
+- [x] **Python 3.12:** Instalado e verificado.
 - [x] **Poetry:** Configurado e instalado com sucesso
 - [x] **Determinismo:** Arquivos `pyproject.toml` e `poetry.lock` gerados com sucesso
 - [x] **Isolamento:** Virtual Environment ativado em `.venv/`
@@ -87,33 +87,51 @@ poetry run bandit main.py -f json
 
 ---
 
-### 2.2. Verificação de Dependências (Safety/pip-audit)
+### 2.2. Verificação de Dependências (Safety)
 
 **Comando Executado:**
 ```bash
-pip-audit
+poetry run safety check
 ```
 
 **Resultado - VULNERABILIDADES DE CVE: ZERO ✅**
 
 ```
-No known vulnerabilities found
++==============================================================================+
+
+                               /$$$$$$            /$$
+                              /$$__  $$          | $$
+           /$$$$$$$  /$$$$$$ | $$  \__//$$$$$$  /$$$$$$   /$$   /$$
+          /$$_____/ |____  $$| $$$$   /$$__  $$|_  $$_/  | $$  | $$
+         |  $$$$$$   /$$$$$$$| $$_/  | $$$$$$$$  | $$    | $$  | $$
+          \____  $$ /$$__  $$| $$    | $$_____/  | $$ /$$| $$  | $$
+          /$$$$$$$/|  $$$$$$$| $$    |  $$$$$$$  |  $$$$/|  $$$$$$$
+         |_______/  \_______/|__/     \_______/   \___/   \____  $$
+                                                          /$$  | $$
+                                                         |  $$$$$$/
+  by safetycli.com                                        \______/
+
++==============================================================================+
+
+ REPORT
+
+  Safety v3.7.0 is scanning for Vulnerabilities...
+  Scanning dependencies in your environment:
+
+  -> C:\Users\Alexandre\eps-g13-buscadorosint\.venv\Lib\site-packages
+
+  Using open-source vulnerability database
+  Found and scanned 65 packages
+  Timestamp 2026-04-01 16:40:17
+  0 vulnerabilities reported
+  0 vulnerabilities ignored
+
+ No known security vulnerabilities reported.
+
++==============================================================================+
 ```
 
-**Análise de Dependências Instaladas:**
-
-| Pacote | Versão | Status | CVE Known |
-|--------|--------|--------|-----------|
-| bandit | 1.9.4 | ✅ Seguro | Nenhum |
-| safety | 2.3.5 | ✅ Seguro | Nenhum |
-| ruff | 0.3.7 | ✅ Seguro | Nenhum |
-| setuptools | 82.0.1 | ✅ Seguro | Nenhum |
-| requests | 2.33.1 | ✅ Seguro | Nenhum |
-| rich | 14.3.3 | ✅ Seguro | Nenhum |
-| pyyaml | 6.0.3 | ✅ Seguro | Nenhum |
-| Todas as 18+ dependências | - | ✅ Seguro | Nenhum |
-
-**Conclusão:** Nenhuma vulnerabilidade ou CVE conhecida detectada em qualquer dependência do projeto.
+**Conclusão:** Nenhuma vulnerabilidade ou CVE conhecida detectada após escanear 65 pacotes.
 
 ---
 
